@@ -9,7 +9,7 @@
 .container{
   height: 100vh;
   width: 100%;
-  background-color: grey;
+  background-color: rgb(194, 194, 194);
 }
 
 .header{
@@ -39,9 +39,23 @@
 /* END FORMATTAZIONE LOGO, TESTO, SELECT */
 
 
-
 /* FORMATTAZIONE ICON */
+.icons{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
 
+.icons .box{
+  flex-basis: calc(100% / 6);
+  margin: 25px 10px ;
+  padding: 25px;
+  border-radius: 10px;
+  background-color: white;
+  text-align: center;
+  font-size: 200%;
+  filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.5));
+}
 
 
 /* END FORMATTAZIONE ICON */
