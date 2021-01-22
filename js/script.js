@@ -1,4 +1,4 @@
-document.ready(function(){
+$(document).ready(function(){
   const icons = [
     {
       name: 'cat',
@@ -97,6 +97,23 @@ document.ready(function(){
       family: 'fas',
     }
   ];
+
+  const colors = [
+    'blue',
+    'orange',
+    'purple'
+  ];
+
+  // CICLO, USO INCLUDES E CREO UN ARRAY CON 3 ELEMENTI
+  const types = [];
+
+  icons.forEach((element) => {
+    if (!types.includes(element.type)) {
+      types.push(element.type);
+    }
+  });
+  console.log(types);
+
 
 
 });
