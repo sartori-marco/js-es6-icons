@@ -1,4 +1,6 @@
 $(document).ready(function(){
+
+  // 16 ICONE
   const icons = [
     {
       name: 'cat',
@@ -98,6 +100,7 @@ $(document).ready(function(){
     }
   ];
 
+  // 3 COLORI
   const colors = [
     'blue',
     'orange',
@@ -131,18 +134,53 @@ $(document).ready(function(){
   });
   console.log(iconsColor);
 
-
+  //RICHIAMO FUNZIONE STAMPA ICONE
   const container = $('.icons')
-
   stampaIcons(iconsColor,container);
 
+  //SELECT CHE CAMBIA
+  const select = $('.type')
+  option(types,select);
+
+  select.change(function(){
+    const selected = $(this).val();
+
+    const filterIcon = filterChange(iconsColor,selected);
+
+    stampaIcons(filterIcon,container);
+  });
+
+
+
+
 });
+//END DOCUMENT READY
 
 
+////////////////FUNZIONI/////////////////////////
 
-//FUNZIONI
+// FUNZIONE PER FILTRARE GLI ELEMENTI/ICONE
+function filterChange(array, type){
+  const filterIcons = array.filter((element)=>{
+    return element.type == type;
+  });
 
+  // IF PER VERIFICARE L'OPZIONE ALL
+  if (filterIcons.length > 0) {
+    return filterIcons;
+  }
+
+  else {
+    return array;
+  }
+
+
+}
+
+
+//FUNZIONE STAMPA ICONE
 function stampaIcons(array,container){
+  container.html(' ');
   array.forEach((element) => {
     // DESTRUCTURING
     const {name, family, prefix, type, color} = element;
@@ -160,6 +198,18 @@ function stampaIcons(array,container){
 }
 
 
+// FUNZIONE OPZIONE SULLA SELECT
+function option(array,select) {
+  array.forEach((element) => {
+    select.append(
+      `
+      <option value="${element}">${element}</option>
+      `);
+  });
+
+}
+
+
 function getTypes(array){
   const types = [];
 
@@ -170,11 +220,6 @@ function getTypes(array){
   });
   return types;
 }
-
-
-
-
-
 
 
 
